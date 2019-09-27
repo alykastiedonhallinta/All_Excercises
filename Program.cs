@@ -25,9 +25,27 @@ namespace CSharp_kurssin_tehtavat
 
                     case "3":
                         var Task3 = new Task3();
-                        Task3.Calculate();
+                        Task3.Combine();
                         break;
 
+                    case "11":
+                        var Task11 = new Task11();
+                        Task11.createFile();
+                        break;
+
+                    case "13":
+                        var Task13 = new Task13();
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        int b = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine(Task13.twoNumbers(a, b));
+                        break;
+
+                    case "14":
+                        var Task14 = new Task14();
+                        int c = Convert.ToInt32(Console.ReadLine());
+                        double juuri = Task14.Nelio(c);
+                        Task14.Tulosta(juuri);
+                        break;
 
 
 

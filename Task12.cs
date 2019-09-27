@@ -5,15 +5,15 @@ using System.Text;
 
 namespace CSharp_kurssin_tehtavat
 {
-    //Tehtävä 11: Luo ohjelma, joka kysyy käyttäjältä tiedoston nimen.Ohjelma tarkistaa löytyykö tiedostoa, ellei tiedostoa löydy, ohjelma luo sen nimisen tiedoston.Seuraavaksi käyttäjältä kysytään tekstiä, mitä hän haluaisi tallentaa ohjelmaan, ohjelma tallentaa annetun tekstin tiedostoon ja sulkee sen.
-    public class Task11
+    // Tehtävä 12: Luo tekstitiedosto, johon kirjoitat ostoslistasi. Tämän jälkeen luo ohjelma, joka lukee kyseisen tiedoston ja tulostaa ostoslistasi
+    public class Task12
     {
-        public void createFile()
+        public void createGroceryList()
         {
-            Console.WriteLine("Anna haluamasi tiedoston nimi");
+            Console.WriteLine("Anna kauppalistalle nimi");
             string inputFile = Console.ReadLine();
 
-            Console.WriteLine("Anna jotain sisältöä tiedostoon");
+            Console.WriteLine("Anna kauppalistaan halutut asiat");
             string inputText = Console.ReadLine();
 
             string workDir = Environment.CurrentDirectory;
@@ -35,6 +35,16 @@ namespace CSharp_kurssin_tehtavat
                     fs.Write(contents, 0, contents.Length);
                 }
 
+                // Open the stream and read it back.    
+                using (StreamReader sr = File.OpenText(filu))
+                {
+                    Console.WriteLine("Kauppalistan sisältö on: ");
+                    string s = "";
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        Console.WriteLine(s);
+                    }
+                }
             }
             catch (Exception e)
             {
