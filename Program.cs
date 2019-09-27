@@ -8,8 +8,7 @@ namespace CSharp_kurssin_tehtavat
         {
             while (true)
             {
-                Console.WriteLine("Syötä tehtävän numero");
-                string selection = Console.ReadLine();
+                string selection = start();
 
                 switch (selection)
                 {
@@ -47,16 +46,67 @@ namespace CSharp_kurssin_tehtavat
                         Task14.Tulosta(juuri);
                         break;
 
+                    case "15":
+                        var Task15 = new Task15();
+                        string textWall = Task15.getTextFile();
+                        if (textWall == null)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Task15.readTextFile(textWall);
+                            break;
+                        }
 
+                    case "16":
+                        var Task16 = new Task16();
+                        Task16.inputTextToFile();
+                        break;
 
+                    case "17":
+                        Console.WriteLine("Anna kaksi lukua potenssiin laskemista varten");
+                        var Task17 = new Task17();
+                        Console.WriteLine("Vastaus: " + Task17.poww());
+                        break;
 
+                    case "0":
+                        Environment.Exit(0);
+                        break;
 
-
-
+                    default:
+                        Console.WriteLine("Tehtävää " + selection + " ei löydy");
+                        break;
                 }
-                
-                
             }
+        }
+
+        public static string start()
+        {
+            bool firstTime = true;
+            if (!firstTime) Console.ReadKey();
+            firstTime = false;
+            Console.Clear();
+
+            string title = @"
+                    )          (             )  (                      )  (                 
+   (     _ _     ( /(   (      )\ )       ( /(  )\ )  *   )         ( /(  )\ )       *   )  
+   )\  _| | |_   )\())  )\    (()/(   (   )\())(()/(` )  /(    (    )\())(()/( (   ` )  /(  
+ (((_)|_  .  _| ((_)\((((_)(   /(_))  )\ ((_)\  /(_))( )(_))   )\ |((_)\  /(_)))\   ( )(_)) 
+ )\___|_     _|  _((_))\ _ )\ (_))   ((_)  ((_)(_)) (_(_()) _ ((_)|_ ((_)(_)) ((_) (_(_())  
+((/ __| |_|_|   | || |(_)_\(_)| _ \ _ | | / _ \|_ _||_   _|| | | || |/ / / __|| __||_   _|  
+ | (__          | __ | / _ \  |   /| || || (_) || |   | |  | |_| |  ' <  \__ \| _|   | |    
+  \___|         |_||_|/_/ \_\ |_|_\ \__/  \___/|___|  |_|   \___/  _|\_\ |___/|___|  |_|    
+                                                                                            
+";
+            Console.WriteLine(title);
+
+            string start = "Syötä tehtävän numero tai poistu nollalla";
+            Console.SetCursorPosition((Console.WindowWidth - start.Length) / 2, Console.CursorTop);
+            Console.WriteLine(start);
+            string selection = Console.ReadLine();
+            Console.ResetColor();
+            return selection;
         }
     }
 }
