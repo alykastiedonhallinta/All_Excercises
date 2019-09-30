@@ -9,6 +9,9 @@ namespace CSharp_kurssin_tehtavat
         string first = "Etunimi";
         string last = "Sukunimi";
 
+        public string testavaKuvaus = ("Tehtävä 4: Yhdistä kaksi stringiä");
+
+        // Luodaan aliohjelma stringien yhdistämistä varten
         public void Combine()
         {
             Console.WriteLine(first + " " + last);
